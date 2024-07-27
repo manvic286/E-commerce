@@ -2,8 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const ejs = require('ejs')
 
-// const dotenv = require('dotenv')
-// const dbConnection = require('./db')
 const app = express()
 
 // view engine
@@ -24,9 +22,6 @@ const productSchema = {
   
 const Product = mongoose.model('Product', productSchema);
 
-// dotenv.config();
-
-// const PORT = process.env.Port
 const PORT = 4000
 
 app.listen(PORT, () => {
@@ -40,26 +35,6 @@ app.get('/', (req, res) => {
             res.render('index3', { products, title: "Catalogue"})
     })
 })
-
-// app.get('/new-item', (req, res) => {
-
-//     const product = new Product(
-//         {
-//             productName: "Snickers",
-//             price: "5",
-//             rating: 4.6
-//         }
-//     )
-
-//     product.save()
-//         .then((result) => {
-//             res.send(result)
-//         })
-//         .catch(err => {
-//             console.log(err)
-//         })
-
-// })
 
 app.post('/', (req, res) => {
     const product = new Product(req.body)
@@ -103,5 +78,3 @@ app.use((req, res) => {
     res.status(404).render('404', { title : '404' });
 
 })
-
-// dbConnection()
