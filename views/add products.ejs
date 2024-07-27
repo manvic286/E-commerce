@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <header>
+        <%- include('./partials/nav.ejs') %>
+    </header>
+
+    <div class="create body">
+        
+        <form action="/" method="POST">
+            <label for="productName">Product name</label>
+            <input type="text" name="productName" id="product-name" required>
+
+            <label for="price">Product price</label>
+            <input type="text" name="price" id="product-price" required>
+
+            <label for="rating">Base rating (max:3)</label>
+            <input type="number" min="1" max="3" name="rating" id="product-rating" required>
+
+            <label for="description">Product description</label>
+            <textarea name="description" id="product-description" required></textarea>
+
+            <label for="image">Choose Image: </label>
+            <input type="file" name="image" id="imageInput">
+            <img id="imagePreview" src="" alt="">
+            <br><br>
+
+            <button>Submit</button>
+        </form>
+
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>
