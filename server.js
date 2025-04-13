@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
     Product.find()
         .then(products => {
-            res.render('index3', { products, title: "Catalogue"})
+            res.render('index', { products, title: "Catalogue"})
     })
 })
 
